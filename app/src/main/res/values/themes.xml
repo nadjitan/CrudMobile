@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- GitHub test -->
+    <!-- GitHub -->
     <!-- Base application theme. -->
     <style name="Theme.CrudMobile" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/green_light</item>

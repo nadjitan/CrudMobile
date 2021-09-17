@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signupFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@color/navy_blue"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.auth.SignupFragment">
+
+    <TextView
+        android:id="@+id/tvhSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:text="@string/tvh_signup"
+        android:textAlignment="center"
+        android:textColor="@color/green_light"
+        android:textSize="40sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSignupName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tvhSignup"
+        android:theme="@style/EditTextThemeOverlay"
+        android:hint="@string/et_signup_name"
+        android:textColorHint="@color/green_light"
+        app:boxStrokeColor="@color/green_light"
+        app:errorTextAppearance="@style/ErrorTextAppearance">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignupName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textColor="@color/green_light"
+            android:textColorHighlight="@color/textColorHighlight"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSignupEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tilSignupName"
+        android:theme="@style/EditTextThemeOverlay"
+        android:hint="@string/et_email"
+        android:textColorHint="@color/green_light"
+        app:boxStrokeColor="@color/green_light"
+        app:errorTextAppearance="@style/ErrorTextAppearance">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignupEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/green_light"
+            android:textColorHighlight="@color/textColorHighlight"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSignupPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tilSignupEmail"
+        android:theme="@style/EditTextThemeOverlay"
+        android:hint="@string/et_password"
+        android:textColorHint="@color/green_light"
+        app:boxStrokeColor="@color/green_light"
+        app:errorTextAppearance="@style/ErrorTextAppearance">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignupPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/green_light"
+            android:textColorHighlight="@color/textColorHighlight"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSignupConfirmPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tilSignupPassword"
+        android:theme="@style/EditTextThemeOverlay"
+        android:hint="@string/et_confirm_password"
+        android:textColorHint="@color/green_light"
+        app:boxStrokeColor="@color/green_light"
+        app:errorTextAppearance="@style/ErrorTextAppearance">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignupConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/green_light"
+            android:textColorHighlight="@color/textColorHighlight"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvGoToLogin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilSignupConfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_go_login"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/green_light"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvGoToLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ripple_border_blue"
+        android:text="@string/btn_signup"
+        android:textStyle="bold"
+        android:textColor="@color/navy_blue" />
+</RelativeLayout>

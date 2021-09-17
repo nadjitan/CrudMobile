@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/navy_blue"
+    tools:context=".ui.main.MainFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvLoggedInUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.70"
+            android:textColor="@color/green_light"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Logged In User" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:background="@drawable/ripple_border_blue"
+            android:text="@string/btnLogout"
+            android:textStyle="bold"
+            android:textColor="@color/navy_blue"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/et_name"
+        android:backgroundTint="@color/green_light"
+        android:textColor="@color/green_light"
+        android:textColorHint="@color/green_dark"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etEmailId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_main_email"
+        android:backgroundTint="@color/green_light"
+        android:textColor="@color/green_light"
+        android:textColorHint="@color/green_dark"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/bt_add"
+        android:textColor="@color/navy_blue"
+        android:background="@drawable/ripple_border_blue"
+        app:icon="@drawable/ic_baseline_person_add_24"
+        app:iconGravity="textStart"
+        app:iconTint="@color/navy_blue"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/border_green"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:text="@string/rv_header"
+        android:textColor="@color/green_light"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvItemsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvNoRecordsAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/tv_records_status"
+        android:textSize="18sp"
+        android:textColor="@color/green_dark"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</LinearLayout>

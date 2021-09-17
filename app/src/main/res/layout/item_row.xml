@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llMain"
+    android:layout_width="match_parent"
+    android:radius="4dp"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="6dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="6dp"
+    android:paddingLeft="10dp">
+    <!-- Background drawable is set programmatically -->
+
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="Id" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="Email" />
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/iv_edit"
+        android:scaleType="center"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:tint="@color/black" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/iv_delete"
+        android:scaleType="center"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:tint="@color/black" />
+</LinearLayout>

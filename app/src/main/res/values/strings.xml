@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Crud Mobile</string>
+
+    <string name="bt_add">ADD EMPLOYEE</string>
+    <string name="rv_header">EMPLOYEES LIST</string>
+    <string name="tv_records_status">No employees…</string>
+    <string name="iv_edit">Edit Image</string>
+    <string name="iv_delete">Delete Image</string>
+    <string name="tv_cancel" tools:ignore="ButtonCase">CANCEL</string>
+    <string name="tv_update">UPDATE</string>
+    <string name="eth_enter_name">Enter Name</string>
+    <string name="tv_update_name">Name</string>
+    <string name="tv_update_email">Email ID</string>
+    <string name="et_update_email">Enter Email ID</string>
+    <string name="tv_update_title">UPDATE RECORD</string>
+    <string name="tvh_login">LOGIN</string>
+    <string name="btn_Login">login</string>
+    <string name="tvh_signup">SIGNUP</string>
+    <string name="btn_signup">signup</string>
+    <string name="tv_name">Name</string>
+    <string name="et_name">Enter name</string>
+    <string name="tv_email">Email</string>
+    <string name="et_email">Email</string>
+    <string name="et_password">Password</string>
+    <string name="et_confirm_password">Confirm Password</string>
+    <string name="et_signup_name">Name</string>
+    <string name="tv_go_login">Already have an account?</string>
+    <string name="tv_go_signup">Need an account?</string>
+    <string name="iv_edit_image">Edit image</string>
+    <string name="btnLogout">logout</string>
+    <string name="et_main_email">Enter email</string>
+</resources>

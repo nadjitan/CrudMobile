@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CrudMobile" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/green_light</item>
+        <item name="colorPrimaryDark">@color/green_dark</item>
+        <item name="colorAccent">@color/green_light</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/navy_blue</item>
+        <!-- Customize your theme here. -->
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="snackbarStyle">@style/SnackbarStyle</item>
+        <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
+        <item name="snackbarTextViewStyle">@style/SnackbarTextViewStyle</item>
+    </style>
+
+    <style name="Theme_Update_Dialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+    </style>
+</resources>

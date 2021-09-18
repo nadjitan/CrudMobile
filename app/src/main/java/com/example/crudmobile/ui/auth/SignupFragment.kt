@@ -48,8 +48,8 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
                     val status = databaseHandler.addUser(User(0, name, email, password))
 
                     if (status != null) {
+                        // User gets created
                         if (status > -1) {
-                            // User gets created
                             etSignupName.text?.clear()
                             etSignupEmail.text?.clear()
                             etSignupPassword.text?.clear()
@@ -65,10 +65,10 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
                                 Snackbar.LENGTH_SHORT
                             ).show()
                         }
-                    }   else {
+                    } else {
                         Snackbar.make(
                             signupFragment,
-                            "User already exists.",
+                            "Email is already in use.",
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }

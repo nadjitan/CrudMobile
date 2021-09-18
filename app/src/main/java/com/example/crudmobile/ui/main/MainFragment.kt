@@ -1,7 +1,6 @@
 package com.example.crudmobile.ui.main
 
 import android.app.Dialog
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -10,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crudmobile.*
+import com.example.crudmobile.controllers.MainActivity.Companion.getLoggedInUser
 import com.example.crudmobile.controllers.MainActivity.Companion.logout
 import com.example.crudmobile.db.EmployeeDatabase
-import com.example.crudmobile.db.UserDatabase.Companion.KEY_LOGGED_IN
 import com.example.crudmobile.models.Employee
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -24,16 +23,15 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-
-        tvLoggedInUser.text = sharedPref.getString(KEY_LOGGED_IN, "User not found")
+        "Hello ${getLoggedInUser(requireActivity()).name}!".also { tvLoggedInUser.text = it }
 
         btnAdd.setOnClickListener { saveEmployee() }
 
+        // Employee list initializer
         putDataIntoRecyclerView()
 
         btnLogout.setOnClickListener {
-            logout(activity)
+            logout(requireActivity())
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragment2ToLoginFragment()
             )
@@ -75,7 +73,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     /**
      * Function is used to get the Items List which is added in the database table.
-     * @return employeeList
+     * @return employeeList - type of [ArrayList]
      */
     private fun getItemsList(): ArrayList<Employee> {
         // Instance of DatabaseHandler class
@@ -108,7 +106,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     /**
      * Update toast dialog.
-     * @param employee Employee details.
+     * @param employee Type of [Employee]
      * @return void
      */
     fun updateEmployeeDialog(employee: Employee) {
@@ -159,7 +157,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     /**
      * Delete alert dialog.
-     * @param employee Employee details.
+     * @param employee Type of [Employee]
      * @return void
      */
     fun deleteEmployeeAlertDialog(employee: Employee) {

@@ -77,6 +77,7 @@ class UserDatabase(context: Context) :
      * @return void
      */
     fun findUser(email: String, password: String?): User? {
+
         val selectQuery = "SELECT  * FROM $TABLE_CONTACTS WHERE email = '$email'"
 
         val db = this.readableDatabase
@@ -183,10 +184,11 @@ class UserDatabase(context: Context) :
 
     /**
      * Update employee
-     * @param user Employee to update
+     * @param user [User] to update
      * @return success [Int]
      */
     fun updateUser(user: User): Int {
+
         val db = this.writableDatabase
 
         val contentValues = ContentValues()
@@ -208,7 +210,7 @@ class UserDatabase(context: Context) :
 
     /**
      * Delete employee
-     * @param user Employee to delete
+     * @param user [User] to delete
      * @return success [Int]
      */
     fun deleteUser(user: User): Int {

@@ -1,13 +1,12 @@
 package com.example.crudmobile.ui.auth
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.crudmobile.R
+import com.example.crudmobile.controllers.MainActivity.Companion.setLoggedInUser
 import com.example.crudmobile.db.UserDatabase
-import com.example.crudmobile.db.UserDatabase.Companion.KEY_LOGGED_IN
 import com.example.crudmobile.utils.Validator.Companion.isValidEmail
 import com.example.crudmobile.utils.Validator.Companion.isValidPassword
 import com.google.android.material.snackbar.Snackbar
@@ -47,12 +46,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 val status = databaseHandler.findUser(email, password)
 
                 if (status != null) {
-                    // Store user locally
-                    val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-                    with (sharedPref.edit()) {
-                        putString(KEY_LOGGED_IN, email)
-                        apply()
-                    }
+                    setLoggedInUser(requireActivity(), status)
 
                     findNavController().navigate(
                         LoginFragmentDirections.actionLoginFragmentToMainFragment()

@@ -37,8 +37,8 @@
     <style name="ErrorTextAppearance"
         parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textColor">@android:color/holo_orange_dark</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">italic</item>
     </style>
     <style name="HelperTextAppearance"
         parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

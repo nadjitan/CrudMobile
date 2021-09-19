@@ -8,9 +8,8 @@ class EmployeeDiffUtil(
     private val newEmployeeList: List<Employee>
 ): DiffUtil.Callback() {
 
-    override fun getOldListSize(): Int { return oldEmployeeList.size }
-
-    override fun getNewListSize(): Int { return newEmployeeList.size }
+    override fun getOldListSize() = oldEmployeeList.size
+    override fun getNewListSize() = newEmployeeList.size
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldEmployeeList[oldItemPosition].id == newEmployeeList[newItemPosition].id
@@ -24,4 +23,5 @@ class EmployeeDiffUtil(
             else -> true
         }
     }
+
 }

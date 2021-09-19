@@ -67,6 +67,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/bt_add"
         android:textColor="@color/navy_blue"
+        android:textStyle="bold"
         android:background="@drawable/ripple_border_blue"
         app:icon="@drawable/ic_baseline_person_add_24"
         app:iconGravity="textStart"
@@ -77,23 +78,23 @@
         android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bg_green_outline"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="22dp"
         android:gravity="center"
         android:text="@string/rv_header"
         android:textColor="@color/green_light"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchEmployee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_green_fill"
+        android:theme="@style/SearchViewStyle"
+        android:background="@drawable/bg_green_outline"
         android:textCursorDrawable="@null"
         app:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent"
         app:queryHint="Employee..."/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvItemsList"

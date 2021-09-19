@@ -63,6 +63,14 @@
         <item name="hintTextColor">@color/green_light</item>
     </style>
 
+    <!-- SearchView -->
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="tint">@color/green_light</item>
+        <item name="textColorSearchUrl">@color/green_light</item>
+        <item name="android:editTextColor">@color/green_light</item>
+        <item name="android:textColorHint">@color/green_dark</item>
+    </style>
+
     <!-- Snackbar -->
     <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
         <item name="materialThemeOverlay">@style/SnackbarThemeOverlay</item>

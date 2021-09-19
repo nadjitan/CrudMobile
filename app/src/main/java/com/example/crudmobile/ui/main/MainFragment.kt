@@ -71,12 +71,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         if (employees.isNotEmpty()) {
             employeeAdapter.setData(employees)
 
+            binding.searchEmployee.visibility = View.VISIBLE
             binding.rvItemsList.visibility = View.VISIBLE
             binding.tvNoRecordsAvailable.visibility = View.GONE
 
             binding.rvItemsList.layoutManager = LinearLayoutManager(requireContext())
             binding.rvItemsList.adapter = employeeAdapter
         } else {
+            binding.searchEmployee.visibility = View.GONE
             binding.rvItemsList.visibility = View.GONE
             binding.tvNoRecordsAvailable.visibility = View.VISIBLE
         }

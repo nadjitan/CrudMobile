@@ -29,6 +29,7 @@
         android:layout_marginStart="5dp"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:textStyle="bold"
         tools:text="Name" />
 
     <TextView
@@ -39,6 +40,7 @@
         android:layout_marginStart="5dp"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:textStyle="bold"
         tools:text="Email" />
 
     <ImageView

@@ -57,13 +57,15 @@ class MainActivity : AppCompatActivity() {
          * @param activity Type of [Activity]
          * @return [User]
          */
-        fun getLoggedInUser(activity: Activity): User {
+        fun getLoggedInUser(activity: Activity): User? {
             val gson = Gson()
 
             val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
-            val json = sharedPref.getString(KEY_LOGGED_IN, "User not found")
 
-            return gson.fromJson(json, User::class.java)
+            return when (val json = sharedPref.getString(KEY_LOGGED_IN, null)) {
+                null -> null
+                else -> gson.fromJson(json, User::class.java)
+            }
         }
     }
 
@@ -77,6 +79,7 @@ class MainActivity : AppCompatActivity() {
      * Made to let user touch outside an [EditText] or [TextInputLayout] and close keyboard.
      * @see [stackoverflow](https://stackoverflow.com/a/61290481)
      */
+    @Suppress("KDocUnresolvedReference")
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_DOWN) {
             downX = event.rawX.toInt()

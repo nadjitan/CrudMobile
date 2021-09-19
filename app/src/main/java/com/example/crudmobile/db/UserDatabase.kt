@@ -142,12 +142,12 @@ class UserDatabase(context: Context) :
     }
 
     /**
-     * Read users from database in form of [ArrayList].
-     * @return employeeList [ArrayList<EmployeeModel>]
+     * Read users from database in form of [HashSet].
+     * @return employeeList [HashSet<EmployeeModel>]
      */
-    fun getUsers(): ArrayList<User> {
+    fun getUsers(): List<User> {
 
-        val userList: ArrayList<User> = ArrayList()
+        val userList: HashSet<User> = HashSet()
 
         val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
 
@@ -160,26 +160,24 @@ class UserDatabase(context: Context) :
 
             if (cursor.moveToFirst()) {
                 do {
-                    val user = User(
+                    userList.add(User(
                         id = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_ID)),
                         name = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAME)),
                         email = cursor.getString(cursor.getColumnIndexOrThrow(KEY_EMAIL)),
                         password = cursor.getString(cursor.getColumnIndexOrThrow(KEY_PASSWORD))
-                    )
-
-                    userList.add(user)
+                    ))
 
                 } while (cursor.moveToNext())
             }
 
         } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
-            return ArrayList()
+            return emptyList()
         }
 
         cursor.close()
 
-        return userList
+        return userList.sortedBy { e -> e.id }
     }
 
     /**
@@ -215,9 +213,6 @@ class UserDatabase(context: Context) :
      */
     fun deleteUser(user: User): Int {
         val db = this.writableDatabase
-
-        val contentValues = ContentValues()
-        contentValues.put(KEY_ID, user.id) //
 
         // Delete
         val success = db.delete(

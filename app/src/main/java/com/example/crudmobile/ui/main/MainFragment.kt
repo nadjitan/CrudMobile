@@ -2,40 +2,97 @@ package com.example.crudmobile.ui.main
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.crudmobile.*
+import com.example.crudmobile.adapters.EmployeeAdapter
 import com.example.crudmobile.controllers.MainActivity.Companion.getLoggedInUser
 import com.example.crudmobile.controllers.MainActivity.Companion.logout
+import com.example.crudmobile.databinding.FragmentMainBinding
 import com.example.crudmobile.db.EmployeeDatabase
 import com.example.crudmobile.models.Employee
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.dialog_update.*
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment(R.layout.main_fragment) {
+class MainFragment : Fragment(R.layout.fragment_main) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private val employeeAdapter by lazy { EmployeeAdapter(this, requireContext()) }
 
-        "Hello ${getLoggedInUser(requireActivity()).name}!".also { tvLoggedInUser.text = it }
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
 
-        btnAdd.setOnClickListener { saveEmployee() }
+    /**
+     * Function is used to get the Items List which is added in the database table.
+     * @return employeeList - type of [HashSet]
+     */
+    private fun getDbEmployees(): List<Employee> {
+        // Instance of DatabaseHandler class
+        val databaseHandler = EmployeeDatabase(requireContext())
+        // Return employeeList
+        return databaseHandler.getEmployees()
+    }
 
-        // Employee list initializer
-        putDataIntoRecyclerView()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate layout for this fragment
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
 
-        btnLogout.setOnClickListener {
+        val loggedInUser = getLoggedInUser(requireActivity())
+        if (loggedInUser != null) {
+            "Hello ${loggedInUser.name}!".also { binding.tvLoggedInUser.text = it }
+        } else {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragment2ToLoginFragment()
+            )
+        }
+
+        binding.btnLogout.setOnClickListener {
             logout(requireActivity())
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragment2ToLoginFragment()
             )
         }
+
+        binding.btnAdd.setOnClickListener { saveEmployee() }
+
+        // Populate employees RecyclerView
+        val employees = getDbEmployees()
+        if (employees.isNotEmpty()) {
+            employeeAdapter.setData(employees)
+
+            binding.rvItemsList.visibility = View.VISIBLE
+            binding.tvNoRecordsAvailable.visibility = View.GONE
+
+            binding.rvItemsList.layoutManager = LinearLayoutManager(requireContext())
+            binding.rvItemsList.adapter = employeeAdapter
+        } else {
+            binding.rvItemsList.visibility = View.GONE
+            binding.tvNoRecordsAvailable.visibility = View.VISIBLE
+        }
+        // Employees SearchView
+        binding.searchEmployee.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                employeeAdapter.getFilter().filter(query)
+                return false
+            }
+        })
+
+        return binding.root
     }
 
     /**
@@ -60,7 +117,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 etName.text?.clear()
                 etEmailId.text?.clear()
 
-                putDataIntoRecyclerView()
+                employeeAdapter.setData(getDbEmployees())
             }
         } else {
             Snackbar.make(
@@ -68,39 +125,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 "Name or Email cannot be blank.",
                 Snackbar.LENGTH_SHORT
             ).show()
-        }
-    }
-
-    /**
-     * Function is used to get the Items List which is added in the database table.
-     * @return employeeList - type of [ArrayList]
-     */
-    private fun getItemsList(): ArrayList<Employee> {
-        // Instance of DatabaseHandler class
-        val databaseHandler = EmployeeDatabase(requireContext())
-        // Return employeeList
-        return databaseHandler.viewEmployee()
-    }
-
-    /**
-     * Puts data into the [RecyclerView].
-     * @return void
-     */
-    private fun putDataIntoRecyclerView() {
-        if (getItemsList().size > 0) {
-            rvItemsList.visibility = View.VISIBLE
-            tvNoRecordsAvailable.visibility = View.GONE
-
-            // Set the LayoutManager that this RecyclerView will use.
-            rvItemsList.layoutManager = LinearLayoutManager(requireContext())
-            // Adapter class is initialized and list is passed in the param.
-            val itemAdapter = ItemAdapter(requireContext(), getItemsList(), this)
-            // adapter instance is set to the recyclerview to inflate the items.
-            rvItemsList.adapter = itemAdapter
-
-        } else {
-            rvItemsList.visibility = View.GONE
-            tvNoRecordsAvailable.visibility = View.VISIBLE
         }
     }
 
@@ -134,7 +158,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                         Snackbar.LENGTH_SHORT
                     ).show()
 
-                    putDataIntoRecyclerView()
+                    employeeAdapter.setData(getDbEmployees())
 
                     updateDialog.dismiss() // Dialog close
                 }
@@ -182,7 +206,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     Snackbar.LENGTH_SHORT
                 ).show()
 
-                putDataIntoRecyclerView()
+                employeeAdapter.setData(getDbEmployees())
             }
 
             dialogInterface.dismiss() // Dialog close

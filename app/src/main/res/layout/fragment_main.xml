@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@drawable/border_green"
+        android:background="@drawable/bg_green_outline"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:gravity="center"
@@ -87,6 +87,14 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_green_fill"
+        android:textCursorDrawable="@null"
+        app:iconifiedByDefault="false"
+        app:queryHint="Employee..."/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvItemsList"
         android:layout_width="match_parent"

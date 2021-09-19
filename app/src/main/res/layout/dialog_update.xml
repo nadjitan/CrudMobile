@@ -92,7 +92,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/tv_update"
-            android:background="@drawable/border_green"
+            android:background="@drawable/bg_green_outline"
             android:textColor="@color/green_light"
             android:textStyle="bold" />
 
@@ -103,7 +103,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/tv_cancel"
-            android:background="@drawable/border_blue"
+            android:background="@drawable/bg_green_fill"
             android:textColor="@color/navy_blue"
             android:textStyle="bold" />
     </LinearLayout>

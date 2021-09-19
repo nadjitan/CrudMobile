@@ -62,12 +62,35 @@ class EmployeeDatabase(context: Context) :
     }
 
     /**
-     * Read employees from database in form of [ArrayList].
-     * @return employeeList [ArrayList<EmployeeModel>]
+     * Add employee to [EmployeeDatabase].
+     * @param employees [HashSet]
+     * @return success [Long]
      */
-    fun viewEmployee(): ArrayList<Employee> {
+    fun addEmployees(employees: HashSet<Employee>): Long {
+        val db = this.writableDatabase
 
-        val employeeList: ArrayList<Employee> = ArrayList()
+        val contentValues = ContentValues()
+        var success: Long = -1
+
+        for (employee in employees) {
+            contentValues.put(KEY_NAME, employee.name.replaceFirstChar { it.uppercase() })
+            contentValues.put(KEY_EMAIL, employee.email)
+
+            // Inserting employee details using insert query.
+            success = db.insert(TABLE_CONTACTS, null, contentValues)
+        }
+
+        db.close()
+        return success
+    }
+
+    /**
+     * Read employees from database in form of [HashSet].
+     * @return employeeList [List<Employee>]
+     */
+    fun getEmployees(): List<Employee> {
+
+        val employeeList: HashSet<Employee> = HashSet()
 
         val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
 
@@ -75,33 +98,45 @@ class EmployeeDatabase(context: Context) :
         // Cursor is used to read the record one by one. Add them to data model class.
         val cursor: Cursor?
 
-        var id: Long
-        var name: String
-        var email: String
-
         try {
             cursor = db.rawQuery(selectQuery, null)
 
             if (cursor.moveToFirst()) {
                 do {
-                    id = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_ID))
-                    name = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAME))
-                    email = cursor.getString(cursor.getColumnIndexOrThrow(KEY_EMAIL))
-
-                    val employee = Employee(id = id, name = name, email = email)
-                    employeeList.add(employee)
+                    employeeList.add(Employee(
+                        id = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_ID)),
+                        name = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAME)),
+                        email = cursor.getString(cursor.getColumnIndexOrThrow(KEY_EMAIL))
+                    ))
 
                 } while (cursor.moveToNext())
             }
 
         } catch (e: SQLiteException) {
             db.execSQL(selectQuery)
-            return ArrayList()
+            return emptyList()
         }
 
         cursor.close()
 
-        return employeeList
+        // For immediate population purposes
+        if (employeeList.size < 1) {
+            val employees = HashSet<Employee>()
+
+            employees.add(Employee(1, "John", "john@email.com"))
+            employees.add(Employee(2, "Mark", "mark@email.com"))
+            employees.add(Employee(3, "Elise", "elise@email.com"))
+            employees.add(Employee(4, "Jane", "jane@email.com"))
+            employees.add(Employee(5, "Juan", "juan@email.com"))
+            employees.add(Employee(6, "Noel", "noel@email.com"))
+            employees.add(Employee(7, "Tim", "tim@email.com"))
+            employees.add(Employee(8, "Carl", "carl@email.com"))
+
+            addEmployees(employees)
+            return getEmployees().sortedBy { e -> e.id }
+        }
+
+        return employeeList.sortedBy { e -> e.id }
     }
 
     /**
@@ -135,9 +170,6 @@ class EmployeeDatabase(context: Context) :
      */
     fun deleteEmployee(employee: Employee): Int {
         val db = this.writableDatabase
-
-        val contentValues = ContentValues()
-        contentValues.put(KEY_ID, employee.id) //
 
         // Delete
         val success = db.delete(

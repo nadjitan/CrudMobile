@@ -49,7 +49,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     setLoggedInUser(requireActivity(), status)
 
                     findNavController().navigate(
-                        LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                        LoginFragmentDirections.actionLoginFragmentToPagerFragment()
                     )
                 } else {
                     Snackbar.make(

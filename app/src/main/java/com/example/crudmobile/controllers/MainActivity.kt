@@ -16,6 +16,7 @@ import com.example.crudmobile.models.User
 import com.google.android.material.textfield.TextInputLayout
 import kotlin.math.abs
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_pager.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -71,7 +72,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.main_activity)
     }
 

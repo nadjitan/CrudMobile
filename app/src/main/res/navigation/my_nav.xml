@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/mainFragment2">
+    app:startDestination="@id/pagerFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.crudmobile.ui.auth.LoginFragment"
@@ -17,12 +17,10 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out" />
         <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment2"
+            android:id="@+id/action_loginFragment_to_pagerFragment"
+            app:destination="@id/pagerFragment"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
-            app:popUpTo="@+id/my_nav"
-            app:popUpToInclusive="true"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out" />
     </fragment>
@@ -40,18 +38,16 @@
             app:popExitAnim="@anim/slide_out" />
     </fragment>
     <fragment
-        android:id="@+id/mainFragment2"
-        android:name="com.example.crudmobile.ui.main.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
+        android:id="@+id/pagerFragment"
+        android:name="com.example.crudmobile.ui.PagerFragment"
+        android:label="fragment_pager"
+        tools:layout="@layout/fragment_pager" >
         <action
-            android:id="@+id/action_mainFragment2_to_loginFragment"
+            android:id="@+id/action_pagerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"
-            app:popUpTo="@+id/my_nav"
-            app:popUpToInclusive="true" />
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
 </navigation>

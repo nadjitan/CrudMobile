@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pagerFragment"
+    android:background="@color/navy_blue"
+    android:orientation="vertical"
+    tools:context=".ui.PagerFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvLoggedInUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.60"
+            android:textColor="@color/green_light"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Logged In User" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:background="@drawable/ripple_border_blue"
+            android:text="@string/btnLogout"
+            android:textStyle="bold"
+            android:textColor="@color/navy_blue"/>
+    </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_gray"
+        app:tabTextColor="@color/green_dark"
+        app:tabSelectedTextColor="@color/green_light"
+        app:tabRippleColor="@color/green_dark"
+        app:tabIndicatorGravity="top"
+        app:tabIndicatorHeight="5dp"/>
+
+</LinearLayout>

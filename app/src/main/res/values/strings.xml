@@ -29,4 +29,5 @@
     <string name="iv_edit_image">Edit image</string>
     <string name="btnLogout">logout</string>
     <string name="et_main_email">Enter email</string>
+    <string name="tv_sms_title">SMS Message</string>
 </resources>

@@ -8,12 +8,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crudmobile.*
 import com.example.crudmobile.adapters.EmployeeAdapter
-import com.example.crudmobile.controllers.MainActivity.Companion.getLoggedInUser
-import com.example.crudmobile.controllers.MainActivity.Companion.logout
 import com.example.crudmobile.databinding.FragmentMainBinding
 import com.example.crudmobile.db.EmployeeDatabase
 import com.example.crudmobile.models.Employee
@@ -21,6 +18,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.dialog_update.*
 import kotlinx.android.synthetic.main.fragment_main.*
+import android.widget.LinearLayout
+import com.google.android.material.snackbar.Snackbar.SnackbarLayout
+
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -47,22 +47,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     ): View {
         // Inflate layout for this fragment
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-
-        val loggedInUser = getLoggedInUser(requireActivity())
-        if (loggedInUser != null) {
-            "Hello ${loggedInUser.name}!".also { binding.tvLoggedInUser.text = it }
-        } else {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragment2ToLoginFragment()
-            )
-        }
-
-        binding.btnLogout.setOnClickListener {
-            logout(requireActivity())
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragment2ToLoginFragment()
-            )
-        }
 
         binding.btnAdd.setOnClickListener { saveEmployee() }
 
@@ -94,6 +78,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
         })
 
+
+
         return binding.root
     }
 
@@ -111,7 +97,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
             if (status > -1) {
                 Snackbar.make(
-                    mainFragment,
+                    coordinatorLayout,
                     "Employee saved.",
                     Snackbar.LENGTH_SHORT
                 ).show()
@@ -123,10 +109,26 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
         } else {
             Snackbar.make(
-                mainFragment,
+                coordinatorLayout,
                 "Name or Email cannot be blank.",
                 Snackbar.LENGTH_SHORT
             ).show()
+
+            // TOP SNACKBAR
+//            val snackbarUpdated = Snackbar.make(
+//                cl,
+//                "Name or Email cannot be blank.",
+//                Snackbar.LENGTH_SHORT
+//            )
+//            val snackBarLayout = snackbarUpdated.view as SnackbarLayout
+//            for (i in 0 until snackBarLayout.childCount) {
+//                val parent = snackBarLayout.getChildAt(i)
+//                if (parent is LinearLayout) {
+//                    (parent).rotation = 180f
+//                    break
+//                }
+//            }
+//            snackbarUpdated.show()
         }
     }
 
@@ -155,7 +157,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 )
                 if (status > -1) {
                     Snackbar.make(
-                        mainFragment,
+                        coordinatorLayout,
                         "Employee updated.",
                         Snackbar.LENGTH_SHORT
                     ).show()
@@ -166,7 +168,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 }
             } else {
                 Snackbar.make(
-                    mainFragment,
+                    coordinatorLayout,
                     "Name or Email cannot be blank.",
                     Snackbar.LENGTH_SHORT
                 ).show()
@@ -203,7 +205,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
             if (status > -1) {
                 Snackbar.make(
-                    mainFragment,
+                    coordinatorLayout,
                     "${employee.name}'s record deleted.",
                     Snackbar.LENGTH_SHORT
                 ).show()

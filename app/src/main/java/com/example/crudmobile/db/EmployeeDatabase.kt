@@ -165,16 +165,16 @@ class EmployeeDatabase(context: Context) :
 
     /**
      * Delete employee.
-     * @param employee Employee to delete.
+     * @param id Employee to delete.
      * @return success [Int]
      */
-    fun deleteEmployee(employee: Employee): Int {
+    fun deleteEmployee(id: Long): Int {
         val db = this.writableDatabase
 
         // Delete
         val success = db.delete(
             TABLE_CONTACTS,
-            KEY_ID + "=" + employee.id,
+            "$KEY_ID=$id",
             null
         )
 

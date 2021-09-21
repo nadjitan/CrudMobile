@@ -18,9 +18,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.dialog_update.*
 import kotlinx.android.synthetic.main.fragment_main.*
-import android.widget.LinearLayout
-import com.google.android.material.snackbar.Snackbar.SnackbarLayout
-
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -78,8 +75,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
         })
 
-
-
         return binding.root
     }
 
@@ -133,7 +128,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     /**
-     * Update toast dialog.
+     * Update custom dialog.
      * @param employee Type of [Employee]
      * @return void
      */
@@ -192,16 +187,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val builder = MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
             .setIcon(R.drawable.ic_baseline_warning_24)
             .setTitle("DELETE RECORD")
-            .setMessage("Are you sure you want to delete ${employee.name}.")
+            .setMessage("Are you sure you want to delete ${employee.name}'s record?")
 
         // Performing positive action
         builder.setNegativeButton("DELETE") { dialogInterface, _ ->
 
             val databaseHandler = EmployeeDatabase(requireContext())
 
-            val status = databaseHandler.deleteEmployee(
-                Employee(employee.id, "", "")
-            )
+            val status = databaseHandler.deleteEmployee(employee.id)
 
             if (status > -1) {
                 Snackbar.make(

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clIncidentReportForm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@color/navy_blue"
+    tools:context=".ui.SmsFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/navy_blue"
+        android:elevation="10dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/btn_back"
+            android:textColor="@color/green_light"
+            app:icon="@drawable/ic_baseline_arrow_back_ios_24"
+            app:iconTint="@color/green_light"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvReporter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_reporter"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <EditText
+                android:id="@+id/etReporter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/eth_name"
+                android:backgroundTint="@color/green_light"
+                android:textColor="@color/green_light"
+                android:textColorHint="@color/green_dark"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tvDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_date_and_time"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/in_date"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@drawable/bg_green_outline"
+                        android:textColor="@color/green_light"
+                        android:textSize="18sp"
+                        android:importantForAutofill="no"
+                        tools:text="Date"/>
+
+                    <Button
+                        android:id="@+id/btn_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:text="@string/btn_select_date"
+                        android:textColor="@color/navy_blue"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/in_time"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@drawable/bg_green_outline"
+                        android:textColor="@color/green_light"
+                        android:textSize="18sp"
+                        android:importantForAutofill="no"
+                        tools:text="Date"/>
+
+                    <Button
+                        android:id="@+id/btn_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:text="@string/btn_select_time"
+                        android:textColor="@color/navy_blue" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvIncident"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_incident_type"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnInjury"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_green_outline"
+                    android:text="@string/btn_injury"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_baseline_accessibility_24"
+                    app:iconGravity="top"
+                    app:iconTint="@color/navy_blue"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNearMiss"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_green_outline"
+                    android:text="@string/btn_near_miss"
+                    android:textSize="12sp"
+                    android:textColor="@color/navy_blue"
+                    app:icon="@drawable/ic_baseline_call_missed_outgoing_24"
+                    app:iconGravity="top"
+                    app:iconTint="@color/navy_blue" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDeath"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_green_outline"
+                    android:text="@string/btn_death"
+                    android:textSize="12sp"
+                    android:textColor="@color/navy_blue"
+                    app:icon="@drawable/ic_baseline_block_24"
+                    app:iconGravity="top"
+                    app:iconTint="@color/navy_blue"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvIncidentDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_incident_description"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <EditText
+                android:id="@+id/etIncidentDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_incident_description"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:backgroundTint="@color/green_light"
+                android:textColor="@color/green_light"
+                android:textColorHint="@color/green_dark"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/tvWitnesses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_witnesses"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <EditText
+                android:id="@+id/etWitnesses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_witnesses"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:backgroundTint="@color/green_light"
+                android:textColor="@color/green_light"
+                android:textColorHint="@color/green_dark"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_location"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_detailed_location"
+                android:backgroundTint="@color/green_light"
+                android:textColor="@color/green_light"
+                android:textColorHint="@color/green_dark"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/submit"
+                android:textColor="@color/navy_blue"
+                android:id="@+id/btnSubmitForm"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

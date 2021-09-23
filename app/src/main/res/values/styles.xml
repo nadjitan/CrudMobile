@@ -92,4 +92,19 @@
         <!-- using backgroundTint the alpha layer is ignored -->
         <item name="backgroundTint">@color/dark_gray</item>
     </style>
+
+    <!-- DATE AND TIME PICKER STYLES -->
+    <style name="DateTimePickerTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="colorAccent">@color/green_dark</item>
+        <item name="colorPrimary">@color/green_dark</item>
+        <item name="colorButtonNormal">@color/green_dark</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DateTimeNegative</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DateTimePositive</item>
+    </style>
+    <style name="DateTimeNegative" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/green_dark</item>
+    </style>
+    <style name="DateTimePositive" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/green_dark</item>
+    </style>
 </resources>

@@ -32,8 +32,8 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
      * @return void
      */
     private fun signup() {
-        val name = etSignupName.text.toString()
-        val email = etSignupEmail.text.toString()
+        val name = etSignupName.text.toString().trim()
+        val email = etSignupEmail.text.toString().trim()
         val password = etSignupPassword.text.toString()
         val confirmPassword = etSignupConfirmPassword.text.toString()
         val databaseHandler = UserDatabase(requireContext())

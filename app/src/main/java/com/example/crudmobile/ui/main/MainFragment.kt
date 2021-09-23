@@ -83,8 +83,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
      * @return void
      */
     private fun saveEmployee() {
-        val name = etName.text.toString()
-        val email = etEmailId.text.toString()
+        val name = etName.text.toString().trim()
+        val email = etEmailId.text.toString().trim()
         val databaseHandler = EmployeeDatabase(requireContext())
 
         if (name.isNotEmpty() && email.isNotEmpty()) {
@@ -141,8 +141,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         updateDialog.etUpdateEmailId.setText(employee.email) // Set EditText to email
 
         updateDialog.tvUpdate.setOnClickListener {
-            val name = updateDialog.etUpdateName.text.toString()
-            val email = updateDialog.etUpdateEmailId.text.toString()
+            val name = updateDialog.etUpdateName.text.toString().trim()
+            val email = updateDialog.etUpdateEmailId.text.toString().trim()
 
             val databaseHandler = EmployeeDatabase(requireContext())
 

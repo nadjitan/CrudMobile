@@ -84,27 +84,29 @@
         android:gravity="end"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tvUpdate"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:padding="10dp"
+            android:layout_height="wrap_content"
             android:text="@string/tv_update"
-            android:background="@drawable/bg_green_outline"
             android:textColor="@color/green_light"
-            android:textStyle="bold" />
+            app:strokeColor="@color/green_light"
+            app:strokeWidth="2dp"
+            app:backgroundTint="@android:color/transparent"
+            app:rippleColor="@color/green_dark"/>
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tvCancel"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="@string/tv_cancel"
-            android:background="@drawable/bg_green_fill"
             android:textColor="@color/navy_blue"
-            android:textStyle="bold" />
+            app:backgroundTint="@color/green_light"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/green_light"
+            app:rippleColor="@color/green_dark"/>
     </LinearLayout>
 </LinearLayout>

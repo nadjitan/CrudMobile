@@ -18,7 +18,7 @@
         android:id="@+id/tvId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1"
+        android:layout_weight="0.15"
         android:textColor="@color/black"
         android:textSize="16sp"
         tools:text="Id" />
@@ -38,7 +38,7 @@
                 android:id="@+id/tvhRowReporter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.45"
+                android:layout_weight="0.5"
                 android:textColor="@color/black"
                 android:text="@string/tvh_row_reporter"
                 android:textSize="16sp"/>
@@ -63,7 +63,7 @@
                 android:id="@+id/tvhRowIncidentReport"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.9"
+                android:layout_weight="0.98"
                 android:textColor="@color/black"
                 android:text="@string/tvh_row_incident_type"
                 android:textSize="16sp"/>

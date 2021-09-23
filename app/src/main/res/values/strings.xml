@@ -61,4 +61,7 @@
     <string name="et_witnesses">Who were the people that was able to witness the incident? (e.g. John, Mark, Sam)</string>
     <string name="submit">SUBMIT</string>
     <string name="tv_created_at">Report Creation Date:</string>
+    <string name="tv_phone_number">Phone Number:</string>
+    <string name="tv_form_phone_number">PHONE NUMBER</string>
+    <string name="et_form_phone_number">Your phone number</string>
 </resources>

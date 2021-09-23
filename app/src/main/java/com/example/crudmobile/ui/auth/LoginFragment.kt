@@ -33,8 +33,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
      * @return void
      */
     private fun login() {
-        val email = etLoginEmail.text.toString()
-        val password = etLoginPassword.text.toString()
+        val email = etLoginEmail.text.toString().trim()
+        val password = etLoginPassword.text.toString().trim()
 
         val databaseHandler = UserDatabase(requireContext())
 

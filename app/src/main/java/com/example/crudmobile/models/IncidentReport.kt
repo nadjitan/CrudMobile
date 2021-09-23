@@ -11,6 +11,7 @@ data class IncidentReport(
     val dateTime: Date?,
     val incidentDescription: String = "",
     val location: String = "",
+    val phoneNumber: Long,
     val createdAt: Date? = SimpleDateFormat(
         "EEE MMM dd HH:mm:ss ZZZZ yyyy", Locale.getDefault())
         .parse(

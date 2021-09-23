@@ -29,6 +29,7 @@ class IncidentReportDatabase(context: Context) :
         private const val KEY_DATE_TIME = "dateTime"
         private const val KEY_DESCRIPTION = "description"
         private const val KEY_LOCATION = "location"
+        private const val KEY_PHONE_NUMBER = "phoneNumber"
         private const val KEY_CREATED_AT = "createdAt"
     }
 
@@ -41,7 +42,8 @@ class IncidentReportDatabase(context: Context) :
                         + KEY_ID + " INTEGER PRIMARY KEY," + KEY_REPORTER + " TEXT,"
                         + KEY_WITNESSES + " TEXT," + KEY_INCIDENT_TYPE + " TEXT,"
                         + KEY_DATE_TIME + " TEXT," + KEY_DESCRIPTION + " TEXT,"
-                        + KEY_LOCATION + " TEXT," + KEY_CREATED_AT + " TEXT" + ")"
+                        + KEY_LOCATION + " TEXT," + KEY_PHONE_NUMBER + " INTEGER,"
+                        + KEY_CREATED_AT + " TEXT" +")"
                 )
 
         db?.execSQL(createIncidentReportTable)
@@ -68,6 +70,7 @@ class IncidentReportDatabase(context: Context) :
         contentValues.put(KEY_DATE_TIME, incidentReport.dateTime.toString())
         contentValues.put(KEY_INCIDENT_TYPE, incidentReport.incidentType)
         contentValues.put(KEY_WITNESSES, incidentReport.witnesses.toString())
+        contentValues.put(KEY_PHONE_NUMBER, incidentReport.phoneNumber)
 
         // Inserting IncidentReport using insert query.
         val success = db.insert(TABLE_INCIDENT_REPORT, null, contentValues)
@@ -107,6 +110,7 @@ class IncidentReportDatabase(context: Context) :
                         incidentDescription = cursor.getString(cursor.getColumnIndexOrThrow(
                             KEY_DESCRIPTION)),
                         location = cursor.getString(cursor.getColumnIndexOrThrow(KEY_LOCATION)),
+                        phoneNumber = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_PHONE_NUMBER)),
                         createdAt = sdf.parse(
                             cursor.getString(cursor.getColumnIndexOrThrow(KEY_CREATED_AT)))
                         )
@@ -152,6 +156,7 @@ class IncidentReportDatabase(context: Context) :
                             incidentDescription = cursor.getString(cursor.getColumnIndexOrThrow(
                                 KEY_DESCRIPTION)),
                             location = cursor.getString(cursor.getColumnIndexOrThrow(KEY_LOCATION)),
+                            phoneNumber = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_PHONE_NUMBER)),
                             createdAt = sdf.parse(
                                 cursor.getString(cursor.getColumnIndexOrThrow(KEY_CREATED_AT)))
                         )
@@ -187,6 +192,7 @@ class IncidentReportDatabase(context: Context) :
         contentValues.put(KEY_DATE_TIME, incidentReport.dateTime.toString())
         contentValues.put(KEY_INCIDENT_TYPE, incidentReport.incidentType)
         contentValues.put(KEY_WITNESSES, incidentReport.witnesses.toString())
+        contentValues.put(KEY_PHONE_NUMBER, incidentReport.phoneNumber)
 
         // Update
         val success = db.update(

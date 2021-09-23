@@ -7,14 +7,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crudmobile.R
 import com.example.crudmobile.adapters.IncidentReportAdapter
 import com.example.crudmobile.databinding.FragmentReportsMonitorBinding
-import com.example.crudmobile.db.EmployeeDatabase
 import com.example.crudmobile.db.IncidentReportDatabase
-import com.example.crudmobile.models.Employee
 import com.example.crudmobile.models.IncidentReport
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -43,9 +40,7 @@ class ReportsMonitorFragment : Fragment(R.layout.fragment_reports_monitor) {
         _binding = FragmentReportsMonitorBinding.inflate(inflater, container, false)
 
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(
-                ReportsMonitorFragmentDirections.actionReportsMonitorFragmentToPagerFragment()
-            )
+            requireActivity().onBackPressed()
         }
 
         // Populate IncidentReport RecyclerView

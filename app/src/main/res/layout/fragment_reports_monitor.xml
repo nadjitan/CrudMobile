@@ -30,9 +30,9 @@
             android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:text="@string/tv_reports_monitor"
-            android:textSize="25sp"
-            android:textColor="@color/green_light"
-            android:textStyle="bold"/>
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/green_light"/>
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchIncidentReport"
@@ -44,7 +44,7 @@
             android:textCursorDrawable="@null"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Report or Incident Type..."/>
+            app:queryHint="Reporter or Incident Type..."/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvReportsMonitor"
             android:layout_width="match_parent"

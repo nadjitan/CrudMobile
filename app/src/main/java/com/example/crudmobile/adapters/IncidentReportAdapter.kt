@@ -11,13 +11,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crudmobile.R
 import com.example.crudmobile.databinding.IncidentReportRowLayoutBinding
-import com.example.crudmobile.db.UserDatabase
 import com.example.crudmobile.models.IncidentReport
-import com.example.crudmobile.ui.auth.LoginFragmentDirections
-import com.example.crudmobile.ui.report.ReportFormFragmentDirections
 import com.example.crudmobile.ui.report.ReportsMonitorFragment
 import com.example.crudmobile.ui.report.ReportsMonitorFragmentDirections
 import com.example.crudmobile.utils.IncidentReportDiffUtil
+import com.google.gson.Gson
 
 class IncidentReportAdapter(
     private val fragment: ReportsMonitorFragment,
@@ -92,7 +90,7 @@ class IncidentReportAdapter(
             val sharedPref =
                 fragment.activity?.getPreferences(Context.MODE_PRIVATE) ?: return@setOnClickListener
             with (sharedPref.edit()) {
-                putString("reportToView", item.id.toString())
+                putString("reportToView", Gson().toJson(item))
                 apply()
             }
 

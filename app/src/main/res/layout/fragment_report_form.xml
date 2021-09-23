@@ -6,7 +6,6 @@
     android:id="@+id/clIncidentReportForm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:orientation="vertical"
     android:background="@color/navy_blue"
     tools:context=".ui.SmsFragment">
@@ -31,11 +30,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
             android:orientation="vertical">
 
             <TextView
@@ -78,10 +79,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <TextView
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/in_date"
                         android:layout_width="0dp"
-                        android:layout_height="38dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:background="@drawable/bg_green_outline"
@@ -93,8 +95,10 @@
                     <Button
                         android:id="@+id/btn_date"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.8"
+                        android:background="@drawable/bg_green_fill"
+
                         android:text="@string/btn_select_date"
                         android:textColor="@color/navy_blue"/>
                 </LinearLayout>
@@ -102,25 +106,28 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/in_time"
                         android:layout_width="0dp"
-                        android:layout_height="38dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:background="@drawable/bg_green_outline"
                         android:textColor="@color/green_light"
                         android:textSize="18sp"
                         android:importantForAutofill="no"
-                        tools:text="Date"/>
+                        tools:text="TIME"/>
 
                     <Button
                         android:id="@+id/btn_time"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.8"
+                        android:gravity="center"
+                        android:background="@drawable/bg_green_fill"
                         android:text="@string/btn_select_time"
                         android:textColor="@color/navy_blue" />
                 </LinearLayout>
@@ -144,13 +151,16 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnInjury"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/bg_green_outline"
+                    android:layout_height="90dp"
+                    android:layout_weight="0.8"
+                    android:layout_margin="2dp"
+                    android:paddingTop="10dp"
                     android:text="@string/btn_injury"
                     android:textColor="@color/navy_blue"
                     android:textSize="12sp"
+                    app:strokeColor="@color/green_light"
+                    app:strokeWidth="2dp"
+                    app:rippleColor="@android:color/transparent"
                     app:icon="@drawable/ic_baseline_accessibility_24"
                     app:iconGravity="top"
                     app:iconTint="@color/navy_blue"/>
@@ -158,13 +168,16 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnNearMiss"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/bg_green_outline"
+                    android:layout_height="90dp"
+                    android:layout_weight="0.8"
+                    android:layout_margin="2dp"
+                    android:paddingTop="10dp"
                     android:text="@string/btn_near_miss"
                     android:textSize="12sp"
                     android:textColor="@color/navy_blue"
+                    app:strokeColor="@color/green_light"
+                    app:strokeWidth="2dp"
+                    app:rippleColor="@android:color/transparent"
                     app:icon="@drawable/ic_baseline_call_missed_outgoing_24"
                     app:iconGravity="top"
                     app:iconTint="@color/navy_blue" />
@@ -172,13 +185,16 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDeath"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/bg_green_outline"
+                    android:layout_height="90dp"
+                    android:layout_weight="0.8"
+                    android:layout_margin="2dp"
+                    android:paddingTop="10dp"
                     android:text="@string/btn_death"
                     android:textSize="12sp"
                     android:textColor="@color/navy_blue"
+                    app:strokeColor="@color/green_light"
+                    app:strokeWidth="2dp"
+                    app:rippleColor="@android:color/transparent"
                     app:icon="@drawable/ic_baseline_block_24"
                     app:iconGravity="top"
                     app:iconTint="@color/navy_blue"/>
@@ -248,6 +264,28 @@
                 android:textColorHint="@color/green_dark"
                 android:importantForAutofill="no"
                 android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/tv_form_phone_number"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/green_light"/>
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_form_phone_number"
+                android:backgroundTint="@color/green_light"
+                android:textColor="@color/green_light"
+                android:textColorHint="@color/green_dark"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                tools:ignore="TextFields" />
 
             <Button
                 android:layout_width="match_parent"

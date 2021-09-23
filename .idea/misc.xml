@@ -10,15 +10,16 @@
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/drawable/border_blue.xml" value="0.2734375" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/drawable/border_green.xml" value="0.28020833333333334" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/drawable/ic_baseline_accessibility_24.xml" value="0.27589743589743587" />
+        <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.28020833333333334" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/drawable/ripple_bg.xml" value="0.28020833333333334" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/drawable/ripple_border_blue.xml" value="0.28020833333333334" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout-v23/main_fragment.xml" value="0.2640625" />
-        <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/dialog_update.xml" value="0.4" />
+        <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/dialog_update.xml" value="0.264" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/employee_row_layout.xml" value="0.2640625" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_main.xml" value="0.25" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_pager.xml" value="0.2640625" />
-        <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_report.xml" value="0.4" />
+        <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_report.xml" value="0.2" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_report_form.xml" value="0.264" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_reports_monitor.xml" value="0.2640625" />
         <entry key="..\:/Android/AndroidStudioProjects/CrudMobile/app/src/main/res/layout/fragment_signup.xml" value="0.264" />

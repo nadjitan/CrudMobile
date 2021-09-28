@@ -3,12 +3,12 @@ CRUD app with simple login and signup made with Android Studio.
 
 ## Sample Images
 
-|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
-|<img src="/app/sample/1.png" alt="Login.png" width="200"/>         |![Signup.png](/app/sample/2.png "Signup page")                       |![Action Notification.png](/app/sample/3.png "Action Notification")         |
-|Login Page                                                         |Signup page                                                          |Action Notification                                                         |
-|-------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------+
-|![Employees CRUD.png](/app/sample/4.png "Employees CRUD page")     |![Incident Report Form.png](/app/sample/5.png "Incident Report form")|![Incident Reports CRUD.png](/app/sample/6.png "Incident Reports CRUD page")|                                                                   |
-|Employees CRUD                                                     |Incident Report form                                                 |Incident Reports CRUD                                                       |
-|-------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------+
-|![Incident Report.png](/app/sample/7.png "Incident Report page")   |                                                                     |                                                                            |
-|Incident Report                                                    |                                                                     |                                                                            |
+|:------------------------------------------------------------------:|:-------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
+|<img src="/app/sample/1.png" alt="1.png" width="200"/>              |<img src="/app/sample/2.png.png" alt="2.png" width="200"/>           |<img src="/app/sample/3.png.png" alt="3.png" width="200"/>                  |
+|Login Page                                                          |Signup page                                                          |Action Notification                                                         |
+|--------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------+
+|<img src="/app/sample/4.png" alt="4.png" width="200"/>              |<img src="/app/sample/5.png.png" alt="5.png" width="200"/>           |<img src="/app/sample/6.png.png" alt="6.png" width="200"/>  |                                                                   |
+|Employees CRUD                                                      |Incident Report form                                                 |Incident Reports CRUD                                                       |
+|--------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------+
+|<img src="/app/sample/7.png" alt="7.png" width="200"/>              |                                                                     |                                                                            |
+|Incident Report                                                     |                                                                     |                                                                            |

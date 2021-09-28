@@ -145,6 +145,7 @@ class ReportFragment : Fragment(R.layout.fragment_report) {
             )
         )
 
+        // Update incident report success
         if (status > -1) {
             showTextViews()
 

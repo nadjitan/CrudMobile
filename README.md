@@ -11,5 +11,4 @@ CRUD app with simple login and signup made with Android Studio.
 |Employees CRUD                                                     |Incident Report form                                                 |Incident Reports CRUD                                                       |
 |-------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------+
 |![Incident Report.png](/app/sample/7.png "Incident Report page")   |                                                                     |                                                                            |
-|Incident Report                                                    |                                                                     |                                                                            |    
-{: .custom-class #custom-id}
+|Incident Report                                                    |                                                                     |                                                                            |

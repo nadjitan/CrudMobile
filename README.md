@@ -4,7 +4,7 @@ CRUD app with simple login and signup made with Android Studio.
 ## Sample Images
 
 |:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
-|![Login.png](/app/sample/1.png =250x "Login page")                 |![Signup.png](/app/sample/2.png "Signup page")                       |![Action Notification.png](/app/sample/3.png "Action Notification")         |
+|![Login.png](/app/sample/1.png "Login page")                       |![Signup.png](/app/sample/2.png "Signup page")                       |![Action Notification.png](/app/sample/3.png "Action Notification")         |
 |Login Page                                                         |Signup page                                                          |Action Notification                                                         |
 |-------------------------------------------------------------------+---------------------------------------------------------------------+----------------------------------------------------------------------------+
 |![Employees CRUD.png](/app/sample/4.png "Employees CRUD page")     |![Incident Report Form.png](/app/sample/5.png "Incident Report form")|![Incident Reports CRUD.png](/app/sample/6.png "Incident Reports CRUD page")|                                                                   |
